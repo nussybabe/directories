@@ -1,8 +1,18 @@
 import Header from "../Components/Header.jsx";
 import Footer from "../Components/Footer.jsx";
 import UserCard from "../Components/UserCard.jsx";
+import cookies from "js-cookies";
+import {useEffect} from "react";
 
 function Profile() {
+
+  const Token = cookies.getItem('token')
+
+  useEffect(() =>{
+    if(Token == undefined || Token == null || Token == "") {
+      window.location.href = "/signup";
+    }
+  }, []);
   return (
     <div>
       <Header page="profile" />

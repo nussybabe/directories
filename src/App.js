@@ -8,6 +8,13 @@ import List from "./movie/List";
 // import LibraryPage from "./library/pages/LibraryPage";
 // import DetailsPage from "./library/pages/DetailsPage";
 
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+
 import Home from "./jobs/Pages/Home.jsx";
 import JobList from "./jobs/Pages/JobList.jsx";
 import JobDetails from "./jobs/Pages/JobDetails.jsx";
@@ -22,17 +29,14 @@ import AppliedJob from "./jobs/Pages/AppliedJob.jsx";
 import DeleteAccount from "./jobs/Pages/DeleteAccount";
 import Signup from "./jobs/Pages/Signup.jsx";
 import Signin from "./jobs/Pages/Signin.jsx";
+import { ReactNotifications } from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate,
-} from "react-router-dom";
 
 function App() {
   return (
     <div>
+      <ReactNotifications />
       <Router>
         <Routes>
           <Route path="/" element={<List />} />
@@ -45,7 +49,7 @@ function App() {
 
           <Route path="/home" element={<Home />} />
           <Route path="/job-list" element={<JobList />} />
-          <Route path="/job-details" element={<JobDetails />} />
+          <Route path="/job-details/:id" element={<JobDetails />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/post-resume" element={<PostResume />} />

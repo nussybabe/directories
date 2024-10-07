@@ -1,11 +1,32 @@
 import HeaderComp from "../Components/Header";
-import FooterComp from "../Components/Footer";
+import FooterComp from "../Components/Footer.jsx";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { config } from "../Components/GeneralFunction.jsx";
 
-function JobDetails() {
+const JobDetail =()=> {
+let param = useParams();
+
+
+const [content, setContent] = useState({})
+   
+const FetchData =()=>{
+    let url = 'http://get_data_url/'+param.id;
+    axios.get(url, config).then(response =>{
+        setContent(response.data.data)
+    })
+}
+
+
+useEffect(()=>{
+  //FetchData()
+      }, [])
+
   return (
     <div>
       <HeaderComp page="Details" />
-
+      
       <section className="job-bg page job-details-page">
         <div className="container">
           <div className="breadcrumb-section">
@@ -89,7 +110,7 @@ function JobDetails() {
                   <span>
                     <span>
                       <a href="#" className="title">
-                        Human Resource Manager
+                       {content.title}
                       </a>
                     </span>{" "}
                     @ <a href="#"> Dropbox Inc</a>
@@ -396,7 +417,7 @@ function JobDetails() {
 
       <FooterComp />
     </div>
-  );
+  )
 }
 
-export default JobDetails;
+export default JobDetail;

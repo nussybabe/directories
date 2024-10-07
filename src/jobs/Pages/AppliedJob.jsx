@@ -1,12 +1,12 @@
 import React from "react";
-import FooterComp from "../Components/Footer";
-import HeaderComp from "../Components/Header";
 import UserInfoCardComp from "../Components/UserCard";
+import Template from "../Components/Template";
 
 function AppliedJob() {
   return (
-    <div>
-      <HeaderComp page={"appliedJob"} />
+    <Template>
+    {/* <div>
+      <HeaderComp page={"appliedJob"} /> */}
 
       <section className="job-bg page ad-profile-page">
         <div className="container">
@@ -426,8 +426,9 @@ function AppliedJob() {
         </div>
       </section>
 
-      <FooterComp />
-    </div>
+      {/* <FooterComp />
+    </div> */}
+    </Template>
   );
 }
 
